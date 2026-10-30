@@ -71,59 +71,16 @@ run was after the group's fixes.
 
 ### 2.2 Summary Table
 
-  --------------------------------------------------------------------------------------------------------------------------------
-            \# Test                                                What it claims Shipped   Fixed     Verdict          Auditor
-                                                                   to catch       code      code                       
-  ------------ --------------------------------------------------- -------------- --------- --------- ---------------- -----------
-             1 `test_cart_total_sums_items`                        Checks whether FAIL      PASS      Genuine          Zarr Ni
-                                                                   the cart total                     detection        Htut
-                                                                   includes all                                        (Raymand)
-                                                                   item prices.                                        
-
-             2 `test_login_rejects_wrong_password`                 Checks whether PASS      PASS      Detects nothing  Zarr Ni
-                                                                   login rejects                                       Htut
-                                                                   an incorrect                                        (Raymand)
-                                                                   password.                                           
-
-             3 `test_search_finds_exact_title`                     Checks whether PASS      PASS      Detects nothing  Aung Myo
-                                                                   exact-title                                         Naing
-                                                                   search returns                                      (Jerry)
-                                                                   the matching                                        
-                                                                   product.                                            
-
-             4 `test_import_returns_count`                         Checks whether FAIL      PASS      Genuine          Aung Myo
-                                                                   bulk import                        detection        Naing
-                                                                   returns the                                         (Jerry)
-                                                                   number of                                           
-                                                                   imported                                            
-                                                                   products.                                           
-
-             5 `test_checkout_empty_returns_none`                  Checks whether FAIL      PASS      Genuine          Zay Htet
-                                                                   empty-cart                         detection        (Zett)
-                                                                   checkout                                            
-                                                                   returns                                             
-                                                                   `None`.                                             
-
-             6 `test_add_to_cart_returns_true_for_known_product`   Checks whether PASS      PASS      Detects nothing  So Pyay
-                                                                   adding a known                                      Htoo
-                                                                   product                                             (Yummy)
-                                                                   returns a                                           
-                                                                   successful                                          
-                                                                   result.                                             
-
-             7 `test_search_is_limited_to_ten_results`             Claims         FAIL      FAIL      Invented         So Pyay
-                                                                   catalogue                          requirement      Htoo
-                                                                   search should                      (provisional;    (Yummy)
-                                                                   return no more                     verify           
-                                                                   than ten                           specification)   
-                                                                   results.                                            
-
-             8 `test_register_duplicate_returns_false`             Checks whether PASS      PASS      Detects nothing  Min Khant
-                                                                   duplicate                                           Kyaw
-                                                                   registration                                        (Sonic)
-                                                                   returns                                             
-                                                                   `False`.                                            
-  --------------------------------------------------------------------------------------------------------------------------------
+| # | Test | What it claims to catch | Shipped code | Fixed code | Verdict | Auditor |
+|---:|---|---|---|---|---|---|
+| 1 | `test_cart_total_sums_items` | Checks whether the cart total includes all item prices. | FAIL | PASS | Genuine detection | Zarr Ni Htut |
+| 2 | `test_login_rejects_wrong_password` | Checks whether login rejects an incorrect password. | PASS | PASS | Detects nothing | Zarr Ni Htut |
+| 3 | `test_search_finds_exact_title` | Checks whether exact-title search returns the matching product. | PASS | PASS | Detects nothing | Aung Myo Naing |
+| 4 | `test_import_returns_count` | Checks whether bulk import returns the number of imported products. | FAIL | PASS | Genuine detection | Aung Myo Naing |
+| 5 | `test_checkout_empty_returns_none` | Checks whether empty-cart checkout returns `None`. | FAIL | PASS | Genuine detection | Zay Htet |
+| 6 | `test_add_to_cart_returns_true_for_known_product` | Checks whether adding a known product returns a successful result. | PASS | PASS | Detects nothing | So Pyay Htoo |
+| 7 | `test_search_is_limited_to_ten_results` | Claims catalogue search should return no more than ten results. | FAIL | FAIL | Invented requirement (provisional; verify specification) | So Pyay Htoo |
+| 8 | `test_register_duplicate_returns_false` | Checks whether duplicate registration returns `False`. | PASS | PASS | Detects nothing | Min Khant Kyaw |
 
 *Auditor assignments follow the group's audit allocation. Each named
 member should ensure that the assigned audit was personally reviewed and
