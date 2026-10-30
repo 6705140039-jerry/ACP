@@ -21,29 +21,7 @@ If any AI tools were used but are not listed here, add them before submission.
 
 ## Part 2 --- Audit of the Supplied Test Set
 
-The repository test run confirms that all eight supplied tests are
-present in `ai_review/test_ai_generated.py`. The initial full run was
-against the shipped code; the final full run was after the group's
-fixes.
 
-### 2.1 Classification Rules
-
-  -----------------------------------------------------------------------
-  Shipped code            Fixed code              Verdict
-  ----------------------- ----------------------- -----------------------
-  FAIL                    PASS                    Genuine detection
-
-  PASS                    PASS                    Detects nothing
-
-  PASS                    FAIL                    Locks in the bug
-
-  FAIL                    FAIL                    Invented requirement,
-                                                  if the expected
-                                                  behaviour is not a
-                                                  documented requirement
-  -----------------------------------------------------------------------
-
-### 2.2 Summary Table
 
 | # | Test | What it claims to catch | Shipped code | Fixed code | Verdict | Auditor |
 |---:|---|---|---|---|---|---|
