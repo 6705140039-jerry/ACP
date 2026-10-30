@@ -648,20 +648,4 @@ PASS; four tests passed in both versions; and the ten-result search test
 failed in both. We will also compare generated tests with our own
 regression tests to ensure they check the same specific behaviour.
 
-------------------------------------------------------------------------
 
-## Final Submission Checklist
-
--   [ ] All members have confirmed the Part 1 AI-tool declaration.
--   [ ] All eight supplied tests are included in Part 2.
--   [ ] Actual shipped-code and fixed-code evidence is included for all
-    eight tests.
--   [ ] Each auditor has confirmed that they personally performed the
-    assigned audit.
--   [ ] The ten-result search requirement has been checked against the
-    specification; our own fixed-code run still fails this test.
--   [ ] Part 3 includes all seven group findings and the additional
-    supplied-test-only row.
--   [ ] Part 4 is complete and under 400 words.
--   [ ] Save and commit this file as `AI_USAGE.md` in the repository
-    root.
