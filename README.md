@@ -577,7 +577,7 @@ in Part 2.
 | Empty checkout returns `[]` instead of `None`. | Yes | Yes | `test_checkout_empty_returns_none` fails on shipped code and passes on fixed code. The group's `test_empty_checkout_returns_none_without_saving_order` checks the same empty-cart behaviour. |
 | Login fails after registering 10,000 users. | Yes | No | None of the eight supplied tests checks registration and login with 10,000 users. The group's `test_register_and_login_many_users` tests this scenario. |
 | Bulk import of 20,000 products returns an incorrect count. | Yes | Yes | `test_import_returns_count` fails on shipped code (3 instead of 2) and passes on fixed code. The group's `test_bulk_import_many_products` checks the same import-count behaviour at 20,000 products. |
-| Search returns 20 results when the supplied test expects no more than 10. | No — not listed as a group finding | No — not a genuine detection | `test_search_is_limited_to_ten_results` fails on both shipped and fixed code. The pair does not establish a fixed defect. Verify the application specification before deciding whether a ten-result cap is required; the test's failure alone is not proof of a bug. |
+| Search returns 20 results when the supplied test expects no more than 10. | No  | No | `test_search_is_limited_to_ten_results` fails on both shipped and fixed code. The pair does not establish a fixed defect. Verify the application specification before deciding whether a ten-result cap is required; the test's failure alone is not proof of a bug. |
 
 **Part 3 finding:** The supplied set genuinely catches three bugs
 already found by the group: cart total, empty checkout, and bulk-import
