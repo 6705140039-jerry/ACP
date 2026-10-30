@@ -6,16 +6,16 @@
 
 ------------------------------------------------------------------------
 
-## Part 1 --- AI Usage Declaration
+## Part 1 --- AI Usage Declaration (required, unmarked)
 
-| AI tool | How we used it |
-|---|---|
-| ChatGPT | Discussed test ideas, explained pytest failures and tracebacks, reviewed test behaviour, helped troubleshoot code, and organized project documentation. |
-| Gemini | Explored test ideas, analysed test behaviour, and supported test-suite analysis and audit documentation. |
+Every AI tool any member used anywhere in this project should be declared. Using AI is allowed. Not declaring it is not.
 
-**Verification:** We reviewed AI-generated suggestions against the actual application behaviour and checked relevant results by running pytest. AI-generated suggestions were not treated as evidence without checking the test results.
+| Tool | What we used it for | Where in the project | How we checked it before relying on it |
+|---|---|---|---|
+| ChatGPT | Helped discuss test ideas, explain pytest failures and tracebacks, review test behaviour, troubleshoot code, and organize the test-audit documentation. | Test/debugging discussions and documentation, including `FINDINGS.md`, `REPORT.md`, and `AI_USAGE.md`. | Reviewed suggestions manually, compared them with the application behaviour, and checked relevant results by running pytest against the original and fixed versions. |
+| Gemini | Helped explore test ideas, analyse test behaviour, and support test-suite and audit-documentation discussions. | Test-suite drafts and audit documentation, including `AI_USAGE.md` and related project files where Gemini suggestions were used. | Reviewed suggestions and checked relevant behaviour against the application and pytest results. |
 
-**Declaration check:** All group members should confirm that ChatGPT and Gemini are the complete list of AI tools used by anyone in the group. Add any missing tools and remove any tool that was not actually used.
+If any AI tools were used but are not listed here, add them before submission.
 
 ------------------------------------------------------------------------
 
