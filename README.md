@@ -71,75 +71,18 @@ fixes.
 
 ### 2.2 Summary Table
 
-  ----------------------------------------------------------------------------------------------------------------------
-  \#     Test                                                What it       Shipped   Fixed   Verdict         Auditor\*
-                                                             claims to                                       
-                                                             catch                                           
-  ------ --------------------------------------------------- ------------- --------- ------- --------------- -----------
-  1      `test_cart_total_sums_items`                        Checks        FAIL      PASS    Genuine         Zarr Ni
-                                                             whether the                     detection       Htut
-                                                             cart total                                      
-                                                             includes all                                    
-                                                             item prices.                                    
+| # | Test | What it claims to catch | Shipped code | Fixed code | Verdict | Auditor |
+|---:|---|---|---|---|---|---|
+| 1 | `test_cart_total_sums_items` | Checks whether the cart total includes all item prices. | FAIL | PASS | Genuine detection | Zarr Ni Htut |
+| 2 | `test_login_rejects_wrong_password` | Checks whether login rejects an incorrect password. | PASS | PASS | Detects nothing | Zarr Ni Htut |
+| 3 | `test_search_finds_exact_title` | Checks whether exact-title search returns the matching product. | PASS | PASS | Detects nothing | Aung Myo Naing |
+| 4 | `test_import_returns_count` | Checks whether bulk import returns the number of imported products. | FAIL | PASS | Genuine detection | Aung Myo Naing |
+| 5 | `test_register_duplicate_returns_false` | Checks whether registering a duplicate username returns `False`. | PASS | PASS | Detects nothing | Min Khant Kyaw |
+| 6 | `test_checkout_empty_returns_none` | Checks whether empty-cart checkout returns `None`. | FAIL | PASS | Genuine detection | Zay Htet |
+| 7 | `test_add_to_cart_returns_true_for_known_product` | Checks whether adding a known product returns a successful result. | PASS | PASS | Detects nothing | So Pyay Htoo |
+| 8 | `test_search_is_limited_to_ten_results` | Claims catalogue search should return no more than ten results. | FAIL | FAIL | Invented requirement (provisional; verify specification) | So Pyay Htoo |
 
-  2      `test_login_rejects_wrong_password`                 Checks        PASS      PASS    Detects nothing Zarr Ni
-                                                             whether login                                   Htut
-                                                             rejects an                                      
-                                                             incorrect                                       
-                                                             password.                                       
-
-  3      `test_search_finds_exact_title`                     Checks        PASS      PASS    Detects nothing Aung Myo
-                                                             whether                                         Naing
-                                                             exact-title                                     
-                                                             search                                          
-                                                             returns the                                     
-                                                             matching                                        
-                                                             product.                                        
-
-  4      `test_import_returns_count`                         Checks        FAIL      PASS    Genuine         Aung Myo
-                                                             whether bulk                    detection       Naing
-                                                             import                                          
-                                                             returns the                                     
-                                                             number of                                       
-                                                             imported                                        
-                                                             products.                                       
-
-  5      `test_register_duplicate_returns_false`             Checks        PASS      PASS    Detects nothing Min Khant
-                                                             whether                                         Kyaw
-                                                             registering a                                   
-                                                             duplicate                                       
-                                                             username                                        
-                                                             returns                                         
-                                                             `False`.                                        
-
-  6      `test_checkout_empty_returns_none`                  Checks        FAIL      PASS    Genuine         Zay Htet
-                                                             whether                         detection       
-                                                             empty-cart                                      
-                                                             checkout                                        
-                                                             returns                                         
-                                                             `None`.                                         
-
-  7      `test_add_to_cart_returns_true_for_known_product`   Checks        PASS      PASS    Detects nothing So Pyay
-                                                             whether                                         Htoo
-                                                             adding a                                        
-                                                             known product                                   
-                                                             to the cart                                     
-                                                             returns a                                       
-                                                             successful                                      
-                                                             result.                                         
-
-  8      `test_search_is_limited_to_ten_results`             Claims        FAIL      FAIL    Invented        So Pyay
-                                                             catalogue                       requirement --- Htoo
-                                                             search should                   confirm against 
-                                                             return no                       the             
-                                                             more than ten                   specification   
-                                                             results.                                        
-  ----------------------------------------------------------------------------------------------------------------------
-
-\*The auditor names above follow the earlier group audit assignment
-draft. Each named member must confirm that they personally performed the
-audit; the findings file establishes authorship of related group tests,
-not who audited these AI-supplied tests.
+*The auditor names follow the earlier group audit assignment draft. Each named member must confirm that they personally performed the audit; authorship of related group tests does not independently establish who audited these AI-supplied tests.*
 
 ### 2.3 Individual Test Analysis and Evidence
 
@@ -624,13 +567,13 @@ verifies it.
 
 ### 2.5 Classification Summary
 
-  Verdict                                        Number of tests
-  ---------------------- ---------------------------------------
-  Genuine detection                                            3
-  Detects nothing                                              4
-  Locks in the bug                                             0
-  Invented requirement     1 (provisional; verify specification)
-  **Total**                                                **8**
+| Verdict | Number of tests |
+|---|---:|
+| Genuine detection | 3 |
+| Detects nothing | 4 |
+| Locks in the bug | 0 |
+| Invented requirement (provisional; verify specification) | 1 |
+| **Total** | **8** |
 
 **Overall finding:** Three tests genuinely detected defects fixed by the
 group: cart total, bulk-import count, and empty checkout. Four tests
@@ -651,54 +594,16 @@ supplied test but not recorded as a group finding. Every "Yes" in the
 supplied-set column points to a test classified as a genuine detection
 in Part 2.
 
-  ----------------------------------------------------------------------------------------------------
-  Bug (our           We found it The         Which test, and how we established that
-  description)                   supplied    
-                                 set catches 
-                                 it          
-  ------------------ ----------- ----------- ---------------------------------------------------------
-  Login fails with   Yes         No          `test_login_rejects_wrong_password` passes on both
-  special characters                         versions. It tests a wrong password, not preservation of
-  in passwords.                              special characters. The group's
-                                             `test_login_preserves_symbols_in_password` tests the
-                                             affected case.
-
-  Case-insensitive   Yes         No          `test_search_finds_exact_title` passes on both versions.
-  catalog search                             Its exact-title assertion does not establish
-  fails.                                     case-insensitive coverage. The group's
-                                             `test_catalog_search_ignores_letter_case` tests this
-                                             behaviour.
-
-  Empty-keyword      Yes         No          None of the eight supplied tests specifically checks an
-  search returns all                         empty search keyword. The group's
-  products instead                           `test_catalog_search_with_empty_keyword` tests this
-  of an empty list.                          behaviour.
-
-  Cart total         Yes         Yes         `test_cart_total_sums_items` fails on shipped code (`10`
-  excludes the last                          instead of `30`) and passes on fixed code. The group's
-  item.                                      `test_cart_total_includes_last_item` records the same
-                                             defect.
-
-  Empty checkout     Yes         Yes         `test_checkout_empty_returns_none` fails on shipped code
-  returns `[]`                               and passes on fixed code. The group's
-  instead of `None`.                         `test_empty_checkout_returns_none_without_saving_order`
-                                             checks the same empty-cart behaviour.
-
-  Login fails after  Yes         No          None of the eight supplied tests checks registration and
-  registering 10,000                         login with 10,000 users. The group's
-  users.                                     `test_register_and_login_many_users` tests this scenario.
-
-  Bulk import of     Yes         Yes         `test_import_returns_count` fails on shipped code (`3`
-  20,000 products                            instead of `2`) and passes on fixed code. The group's
-  returns an                                 `test_bulk_import_many_products` checks the same
-  incorrect count.                           import-count behaviour at 20,000 products.
-
-  Search returns 20  No --- not  No --- not  `test_search_is_limited_to_ten_results` fails on both
-  results when the   listed as a a genuine   shipped and fixed code. The pair does not establish a
-  supplied test      group       detection   fixed defect. Verify the application specification before
-  expects no more    finding                 deciding whether a ten-result cap is required; the test's
-  than 10.                                   failure alone is not proof of a bug.
-  ----------------------------------------------------------------------------------------------------
+| Bug (our description) | We found it | The supplied set catches it | Which test, and how we established that |
+|---|---|---|---|
+| Login fails with special characters in passwords. | Yes | No | `test_login_rejects_wrong_password` passes on both versions. It tests a wrong password, not preservation of special characters. The group's `test_login_preserves_symbols_in_password` tests the affected case. |
+| Case-insensitive catalogue search fails. | Yes | No | `test_search_finds_exact_title` passes on both versions. Its exact-title assertion does not establish case-insensitive coverage. The group's `test_catalog_search_ignores_letter_case` tests this behaviour. |
+| Empty-keyword search returns all products instead of an empty list. | Yes | No | None of the eight supplied tests specifically checks an empty search keyword. The group's `test_catalog_search_with_empty_keyword` tests this behaviour. |
+| Cart total excludes the last item. | Yes | Yes | `test_cart_total_sums_items` fails on shipped code (10 instead of 30) and passes on fixed code. The group's `test_cart_total_includes_last_item` records the same defect. |
+| Empty checkout returns `[]` instead of `None`. | Yes | Yes | `test_checkout_empty_returns_none` fails on shipped code and passes on fixed code. The group's `test_empty_checkout_returns_none_without_saving_order` checks the same empty-cart behaviour. |
+| Login fails after registering 10,000 users. | Yes | No | None of the eight supplied tests checks registration and login with 10,000 users. The group's `test_register_and_login_many_users` tests this scenario. |
+| Bulk import of 20,000 products returns an incorrect count. | Yes | Yes | `test_import_returns_count` fails on shipped code (3 instead of 2) and passes on fixed code. The group's `test_bulk_import_many_products` checks the same import-count behaviour at 20,000 products. |
+| Search returns 20 results when the supplied test expects no more than 10. | No — not listed as a group finding | No — not a genuine detection | `test_search_is_limited_to_ten_results` fails on both shipped and fixed code. The pair does not establish a fixed defect. Verify the application specification before deciding whether a ten-result cap is required; the test's failure alone is not proof of a bug. |
 
 **Part 3 finding:** The supplied set genuinely catches three bugs
 already found by the group: cart total, empty checkout, and bulk-import
