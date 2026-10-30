@@ -8,40 +8,14 @@
 
 ## Part 1 --- AI Usage Declaration
 
-The group's earlier AI usage draft identifies **ChatGPT** and **Gemini**
-as tools used during the project. Every member should confirm that this
-list is complete and correct before submission.
+| AI tool | How we used it |
+|---|---|
+| ChatGPT | Discussed test ideas, explained pytest failures and tracebacks, reviewed test behaviour, helped troubleshoot code, and organized project documentation. |
+| Gemini | Explored test ideas, analysed test behaviour, and supported test-suite analysis and audit documentation. |
 
-  -----------------------------------------------------------------------
-  Tool              What we used it   Where in the      How we checked it
-                    for               project           before relying on
-                                                        it
-  ----------------- ----------------- ----------------- -----------------
-  ChatGPT           Helped discuss    Test/debugging    Compared
-                    test ideas,       discussions and   suggestions with
-                    explain pytest    documentation     the application
-                    failures and      such as           behaviour and
-                    tracebacks,       `FINDINGS.md`,    checked results
-                    review test       `REPORT.md`, and  by running
-                    behaviour, and    `AI_USAGE.md`.    pytest. AI
-                    organize project  Confirm exact     explanations were
-                    documentation.    source files if   not treated as
-                                      AI-generated code evidence without
-                                      was used in them. test output.
+**Verification:** We reviewed AI-generated suggestions against the actual application behaviour and checked relevant results by running pytest. AI-generated suggestions were not treated as evidence without checking the test results.
 
-  Gemini            Helped with test  Test-suite drafts Reviewed
-                    ideas and         and audit         suggestions and
-                    analysis of test  documentation.    checked relevant
-                    behaviour, as     Confirm exact     behaviour against
-                    recorded in the   file paths with   the application
-                    group's earlier   the member(s) who and pytest
-                    AI usage draft.   used it.          results.
-  -----------------------------------------------------------------------
-
-**Declaration check:** Before submission, all members must confirm that
-ChatGPT and Gemini are the complete list of AI tools used by anyone in
-the group. Add any missing tools and remove any tool that was not
-actually used. Correct the project locations if necessary.
+**Declaration check:** All group members should confirm that ChatGPT and Gemini are the complete list of AI tools used by anyone in the group. Add any missing tools and remove any tool that was not actually used.
 
 ------------------------------------------------------------------------
 
@@ -647,5 +621,4 @@ cart-total, import-count, and empty-checkout tests changed from FAIL to
 PASS; four tests passed in both versions; and the ten-result search test
 failed in both. We will also compare generated tests with our own
 regression tests to ensure they check the same specific behaviour.
-
 
