@@ -6,16 +6,42 @@
 
 ------------------------------------------------------------------------
 
-## Part 1 --- AI Usage Declaration (required, unmarked)
+## Part 1 --- AI Usage Declaration
 
-Every AI tool any member used anywhere in this project should be declared. Using AI is allowed. Not declaring it is not.
+The group's earlier AI usage draft identifies **ChatGPT** and **Gemini**
+as tools used during the project. Every member should confirm that this
+list is complete and correct before submission.
 
-| Tool | What we used it for | Where in the project | How we checked it before relying on it |
-|---|---|---|---|
-| ChatGPT | Helped discuss test ideas, explain pytest failures and tracebacks, review test behaviour, troubleshoot code, and organize the test-audit documentation. | Test/debugging discussions and documentation, including `FINDINGS.md`, `REPORT.md`, and `AI_USAGE.md`. | Reviewed suggestions manually, compared them with the application behaviour, and checked relevant results by running pytest against the original and fixed versions. |
-| Gemini | Helped explore test ideas, analyse test behaviour, and support test-suite and audit-documentation discussions. | Test-suite drafts and audit documentation, including `AI_USAGE.md` and related project files where Gemini suggestions were used. | Reviewed suggestions and checked relevant behaviour against the application and pytest results. |
+  -----------------------------------------------------------------------
+  Tool              What we used it   Where in the      How we checked it
+                    for               project           before relying on
+                                                        it
+  ----------------- ----------------- ----------------- -----------------
+  ChatGPT           Helped discuss    Test/debugging    Compared
+                    test ideas,       discussions and   suggestions with
+                    explain pytest    documentation     the application
+                    failures and      such as           behaviour and
+                    tracebacks,       `FINDINGS.md`,    checked results
+                    review test       `REPORT.md`, and  by running
+                    behaviour, and    `AI_USAGE.md`.    pytest. AI
+                    organize project  Confirm exact     explanations were
+                    documentation.    source files if   not treated as
+                                      AI-generated code evidence without
+                                      was used in them. test output.
 
-If any AI tools were used but are not listed here, add them before submission.
+  Gemini            Helped with test  Test-suite drafts Reviewed
+                    ideas and         and audit         suggestions and
+                    analysis of test  documentation.    checked relevant
+                    behaviour, as     Confirm exact     behaviour against
+                    recorded in the   file paths with   the application
+                    group's earlier   the member(s) who and pytest
+                    AI usage draft.   used it.          results.
+  -----------------------------------------------------------------------
+
+**Declaration check:** Before submission, all members must confirm that
+ChatGPT and Gemini are the complete list of AI tools used by anyone in
+the group. Add any missing tools and remove any tool that was not
+actually used. Correct the project locations if necessary.
 
 ------------------------------------------------------------------------
 
@@ -45,18 +71,75 @@ fixes.
 
 ### 2.2 Summary Table
 
-| # | Test | What it claims to catch | Shipped code | Fixed code | Verdict | Auditor |
-|---:|---|---|---|---|---|---|
-| 1 | `test_cart_total_sums_items` | Checks whether the cart total includes all item prices. | FAIL | PASS | Genuine detection | Zarr Ni Htut |
-| 2 | `test_login_rejects_wrong_password` | Checks whether login rejects an incorrect password. | PASS | PASS | Detects nothing | Zarr Ni Htut |
-| 3 | `test_search_finds_exact_title` | Checks whether exact-title search returns the matching product. | PASS | PASS | Detects nothing | Aung Myo Naing |
-| 4 | `test_import_returns_count` | Checks whether bulk import returns the number of imported products. | FAIL | PASS | Genuine detection | Aung Myo Naing |
-| 5 | `test_register_duplicate_returns_false` | Checks whether registering a duplicate username returns `False`. | PASS | PASS | Detects nothing | Min Khant Kyaw |
-| 6 | `test_checkout_empty_returns_none` | Checks whether empty-cart checkout returns `None`. | FAIL | PASS | Genuine detection | Zay Htet |
-| 7 | `test_add_to_cart_returns_true_for_known_product` | Checks whether adding a known product returns a successful result. | PASS | PASS | Detects nothing | So Pyay Htoo |
-| 8 | `test_search_is_limited_to_ten_results` | Claims catalogue search should return no more than ten results. | FAIL | FAIL | Invented requirement (provisional; verify specification) | So Pyay Htoo |
+  ----------------------------------------------------------------------------------------------------------------------
+  \#     Test                                                What it       Shipped   Fixed   Verdict         Auditor\*
+                                                             claims to                                       
+                                                             catch                                           
+  ------ --------------------------------------------------- ------------- --------- ------- --------------- -----------
+  1      `test_cart_total_sums_items`                        Checks        FAIL      PASS    Genuine         Zarr Ni
+                                                             whether the                     detection       Htut
+                                                             cart total                                      
+                                                             includes all                                    
+                                                             item prices.                                    
 
-*The auditor names follow the earlier group audit assignment draft. Each named member must confirm that they personally performed the audit; authorship of related group tests does not independently establish who audited these AI-supplied tests.*
+  2      `test_login_rejects_wrong_password`                 Checks        PASS      PASS    Detects nothing Zarr Ni
+                                                             whether login                                   Htut
+                                                             rejects an                                      
+                                                             incorrect                                       
+                                                             password.                                       
+
+  3      `test_search_finds_exact_title`                     Checks        PASS      PASS    Detects nothing Aung Myo
+                                                             whether                                         Naing
+                                                             exact-title                                     
+                                                             search                                          
+                                                             returns the                                     
+                                                             matching                                        
+                                                             product.                                        
+
+  4      `test_import_returns_count`                         Checks        FAIL      PASS    Genuine         Aung Myo
+                                                             whether bulk                    detection       Naing
+                                                             import                                          
+                                                             returns the                                     
+                                                             number of                                       
+                                                             imported                                        
+                                                             products.                                       
+
+  5      `test_register_duplicate_returns_false`             Checks        PASS      PASS    Detects nothing Min Khant
+                                                             whether                                         Kyaw
+                                                             registering a                                   
+                                                             duplicate                                       
+                                                             username                                        
+                                                             returns                                         
+                                                             `False`.                                        
+
+  6      `test_checkout_empty_returns_none`                  Checks        FAIL      PASS    Genuine         Zay Htet
+                                                             whether                         detection       
+                                                             empty-cart                                      
+                                                             checkout                                        
+                                                             returns                                         
+                                                             `None`.                                         
+
+  7      `test_add_to_cart_returns_true_for_known_product`   Checks        PASS      PASS    Detects nothing So Pyay
+                                                             whether                                         Htoo
+                                                             adding a                                        
+                                                             known product                                   
+                                                             to the cart                                     
+                                                             returns a                                       
+                                                             successful                                      
+                                                             result.                                         
+
+  8      `test_search_is_limited_to_ten_results`             Claims        FAIL      FAIL    Invented        So Pyay
+                                                             catalogue                       requirement --- Htoo
+                                                             search should                   confirm against 
+                                                             return no                       the             
+                                                             more than ten                   specification   
+                                                             results.                                        
+  ----------------------------------------------------------------------------------------------------------------------
+
+\*The auditor names above follow the earlier group audit assignment
+draft. Each named member must confirm that they personally performed the
+audit; the findings file establishes authorship of related group tests,
+not who audited these AI-supplied tests.
 
 ### 2.3 Individual Test Analysis and Evidence
 
@@ -368,44 +451,33 @@ provisional and do not claim this test found a confirmed bug.
 
 The following results are transcribed from the group's terminal output.
 The initial full run used Python 3.12.10 and pytest 9.2.0. The later
-smoke, regression, and slow runs used pytest 9.1.1. The environment
-versions differ, so the commands and results are reported as they were
-run.
+smoke, regression, and slow runs used pytest 9.1.1. The supplied output
+shows these environment-version differences; the commands and results
+are reported as run rather than silently combined.
 
-**A. Initial full run against shipped code**  
+**A. Initial full run against shipped code**\
 Command: `python -m pytest -v`
 
-```text
+``` text
 collected 10 items
-
-ai_review/test_ai_generated.py::test_cart_total_sums_items FAILED
-ai_review/test_ai_generated.py::test_login_rejects_wrong_password PASSED
-ai_review/test_ai_generated.py::test_search_finds_exact_title PASSED
-ai_review/test_ai_generated.py::test_import_returns_count FAILED
-ai_review/test_ai_generated.py::test_register_duplicate_returns_false PASSED
-ai_review/test_ai_generated.py::test_checkout_empty_returns_none FAILED
-ai_review/test_ai_generated.py::test_add_to_cart_returns_true_for_known_product PASSED
-ai_review/test_ai_generated.py::test_search_is_limited_to_ten_results FAILED
-tests/test_bookstore.py::test_example_register PASSED
-worked_example/test_notes.py::test_word_count_counts_words_not_characters FAILED
-
 5 failed, 5 passed in 0.29s
+
+FAILED ai_review/test_ai_generated.py::test_cart_total_sums_items
+FAILED ai_review/test_ai_generated.py::test_import_returns_count
+FAILED ai_review/test_ai_generated.py::test_checkout_empty_returns_none
+FAILED ai_review/test_ai_generated.py::test_search_is_limited_to_ten_results
+FAILED worked_example/test_notes.py::test_word_count_counts_words_not_characters
 ```
 
-The five failures were:
-- `test_cart_total_sums_items`: returned 10 instead of 30.
-- `test_import_returns_count`: returned 3 instead of 2.
-- `test_checkout_empty_returns_none`: returned `[]` instead of `None`.
-- `test_search_is_limited_to_ten_results`: returned 20 results instead of no more than 10.
-- `test_word_count_counts_words_not_characters`: returned 18 instead of 3.
+Key assertion results: cart total was 10 instead of 30; import count
+was 3 instead of 2; empty checkout returned `[]` instead of `None`;
+search returned 20 results instead of at most 10; and the worked example
+returned 18 instead of 3.
 
-The last failure belongs to `worked_example/test_notes.py`, not to the
-eight AI-generated tests.
-
-**B. Smoke tests**  
+**B. Smoke tests**\
 Command: `python -m pytest -m smoke -v`
 
-```text
+``` text
 collected 16 items / 9 deselected / 7 selected
 7 passed, 9 deselected in 0.06s
 ```
@@ -415,41 +487,32 @@ user registration, correct-password login, adding a catalog product,
 searching for a product, adding a product to the cart, and non-empty
 checkout.
 
-**C. Regression tests against shipped code**  
+**C. Regression tests against shipped code**\
 Command: `python -m pytest -m regression -v`
 
-```text
+``` text
 collected 22 items / 16 deselected / 6 selected
 5 failed, 1 passed, 16 deselected in 0.20s
 ```
 
-The five failures were:
-- `test_login_preserves_symbols_in_password`: login returned `False`
-  for the registered password `p@ss-word!42`.
-- `test_catalog_search_ignores_letter_case`: searching for `python`
-  returned `[]` instead of `[1]`.
-- `test_catalog_search_with_empty_keyword`: searching with an empty
-  keyword returned `[1, 2]` instead of `[]`.
-- `test_cart_total_includes_last_item`: returned 10 instead of 30.
-- `test_empty_checkout_returns_none_without_saving_order`: returned
-  `[]` instead of `None`.
-
+The five failures were special-character password login, case-insensitive
+search, empty-keyword search, cart total, and empty checkout.
 `test_login_rejects_password_with_different_symbols` passed.
 
-**D. Regression tests against fixed code**  
+**D. Regression tests against fixed code**\
 Command: `python -m pytest -m regression -v`
 
-```text
+``` text
 collected 25 items / 19 deselected / 6 selected
 6 passed, 19 deselected in 0.06s
 ```
 
 All six selected regression tests passed after the group's fixes.
 
-**E. Slow tests against shipped code**  
+**E. Slow tests against shipped code**\
 Command: `python -m pytest -m slow -v`
 
-```text
+``` text
 collected 25 items / 22 deselected / 3 selected
 2 failed, 1 passed, 22 deselected in 0.19s
 ```
@@ -458,20 +521,20 @@ The 10,000-user registration/login test failed when login for
 `user_0` returned `False`. The 20,000-product bulk-import test returned
 20,001 instead of 20,000. The large-catalog search test passed.
 
-**F. Slow tests against fixed code**  
+**F. Slow tests against fixed code**\
 Command: `python -m pytest -m slow -v`
 
-```text
+``` text
 collected 25 items / 22 deselected / 3 selected
 3 passed, 22 deselected in 0.08s
 ```
 
 All three selected slow tests passed after the group's fixes.
 
-**G. Full run after bookstore fixes, before the notes fix**  
+**G. Full run after bookstore fixes, before the notes fix**\
 Command: `python -m pytest -v`
 
-```text
+``` text
 collected 25 items
 2 failed, 23 passed in 0.23s
 ```
@@ -479,60 +542,23 @@ collected 25 items
 The remaining failures were `test_search_is_limited_to_ten_results` and
 `test_word_count_counts_words_not_characters`. The group then changed
 `worked_example/notes.py` to use `.split()` and committed that change as
-`a5871d0` (`add the split method to countthe words correctly`).
+`a5871d0` (`add the split method to countthe words correctly`). The
+separate command `python -m pytest tests/test_bookstore.py` then reported
+`16 passed in 0.15s`.
 
-The separate bookstore-only command was:
-
-```powershell
-python -m pytest tests/test_bookstore.py
-```
-
-Actual result:
-
-```text
-16 passed in 0.15s
-```
-
-**H. Final full run after the notes fix**  
+**H. Final full run after the notes fix**\
 Command: `python -m pytest -v`
 
-```text
+``` text
 collected 25 items
-
-ai_review/test_ai_generated.py::test_cart_total_sums_items PASSED
-ai_review/test_ai_generated.py::test_login_rejects_wrong_password PASSED
-ai_review/test_ai_generated.py::test_search_finds_exact_title PASSED
-ai_review/test_ai_generated.py::test_import_returns_count PASSED
-ai_review/test_ai_generated.py::test_register_duplicate_returns_false PASSED
-ai_review/test_ai_generated.py::test_checkout_empty_returns_none PASSED
-ai_review/test_ai_generated.py::test_add_to_cart_returns_true_for_known_product PASSED
-ai_review/test_ai_generated.py::test_search_is_limited_to_ten_results FAILED
-tests/test_bookstore.py — all 16 tests PASSED
-worked_example/test_notes.py::test_word_count_counts_words_not_characters PASSED
-
 1 failed, 24 passed in 0.22s
+
+FAILED ai_review/test_ai_generated.py::test_search_is_limited_to_ten_results
 ```
 
-The final run shows that all 24 other tests passed, including all
-bookstore tests and the worked-example word-count test. The only
-remaining failure was `test_search_is_limited_to_ten_results`, which
-returned 20 results.
-
-**I. Individual command for the remaining search-limit test**
-
-To run the remaining test by itself, use:
-
-```powershell
-py -m pytest -q --tb=short ai_review\test_ai_generated.py::test_search_is_limited_to_ten_results
-```
-
-No isolated output or elapsed time for this command was included in the
-supplied terminal logs. Run the command and record its actual result.
-Do not use the full-suite runtime of 0.22s as the individual test time.
-
-**Timing clarification:** The times above (0.29s, 0.06s, 0.20s,
-0.06s, 0.19s, 0.08s, 0.23s, 0.15s, and 0.22s) are runtimes for the
-complete pytest commands shown. They are not individual test durations.
+The final run shows that all 24 other tests passed, including the
+worked-example word-count test. The only remaining failure was the
+ten-result search test, which still returned 20 results.
 
 **Evidence limitation:** The supplied terminal logs do not show the
 original shipped-code commit hash or an isolated checkout command. Do not
@@ -541,13 +567,13 @@ verifies it.
 
 ### 2.5 Classification Summary
 
-| Verdict | Number of tests |
-|---|---:|
-| Genuine detection | 3 |
-| Detects nothing | 4 |
-| Locks in the bug | 0 |
-| Invented requirement (provisional; verify specification) | 1 |
-| **Total** | **8** |
+  Verdict                                        Number of tests
+  ---------------------- ---------------------------------------
+  Genuine detection                                            3
+  Detects nothing                                              4
+  Locks in the bug                                             0
+  Invented requirement     1 (provisional; verify specification)
+  **Total**                                                **8**
 
 **Overall finding:** Three tests genuinely detected defects fixed by the
 group: cart total, bulk-import count, and empty checkout. Four tests
@@ -568,16 +594,54 @@ supplied test but not recorded as a group finding. Every "Yes" in the
 supplied-set column points to a test classified as a genuine detection
 in Part 2.
 
-| Bug (our description) | We found it | The supplied set catches it | Which test, and how we established that |
-|---|---|---|---|
-| Login fails with special characters in passwords. | Yes | No | `test_login_rejects_wrong_password` passes on both versions. It tests a wrong password, not preservation of special characters. The group's `test_login_preserves_symbols_in_password` tests the affected case. |
-| Case-insensitive catalogue search fails. | Yes | No | `test_search_finds_exact_title` passes on both versions. Its exact-title assertion does not establish case-insensitive coverage. The group's `test_catalog_search_ignores_letter_case` tests this behaviour. |
-| Empty-keyword search returns all products instead of an empty list. | Yes | No | None of the eight supplied tests specifically checks an empty search keyword. The group's `test_catalog_search_with_empty_keyword` tests this behaviour. |
-| Cart total excludes the last item. | Yes | Yes | `test_cart_total_sums_items` fails on shipped code (10 instead of 30) and passes on fixed code. The group's `test_cart_total_includes_last_item` records the same defect. |
-| Empty checkout returns `[]` instead of `None`. | Yes | Yes | `test_checkout_empty_returns_none` fails on shipped code and passes on fixed code. The group's `test_empty_checkout_returns_none_without_saving_order` checks the same empty-cart behaviour. |
-| Login fails after registering 10,000 users. | Yes | No | None of the eight supplied tests checks registration and login with 10,000 users. The group's `test_register_and_login_many_users` tests this scenario. |
-| Bulk import of 20,000 products returns an incorrect count. | Yes | Yes | `test_import_returns_count` fails on shipped code (3 instead of 2) and passes on fixed code. The group's `test_bulk_import_many_products` checks the same import-count behaviour at 20,000 products. |
-| Search returns 20 results when the supplied test expects no more than 10. | No  | No | `test_search_is_limited_to_ten_results` fails on both shipped and fixed code. The pair does not establish a fixed defect. Verify the application specification before deciding whether a ten-result cap is required; the test's failure alone is not proof of a bug. |
+  ----------------------------------------------------------------------------------------------------
+  Bug (our           We found it The         Which test, and how we established that
+  description)                   supplied    
+                                 set catches 
+                                 it          
+  ------------------ ----------- ----------- ---------------------------------------------------------
+  Login fails with   Yes         No          `test_login_rejects_wrong_password` passes on both
+  special characters                         versions. It tests a wrong password, not preservation of
+  in passwords.                              special characters. The group's
+                                             `test_login_preserves_symbols_in_password` tests the
+                                             affected case.
+
+  Case-insensitive   Yes         No          `test_search_finds_exact_title` passes on both versions.
+  catalog search                             Its exact-title assertion does not establish
+  fails.                                     case-insensitive coverage. The group's
+                                             `test_catalog_search_ignores_letter_case` tests this
+                                             behaviour.
+
+  Empty-keyword      Yes         No          None of the eight supplied tests specifically checks an
+  search returns all                         empty search keyword. The group's
+  products instead                           `test_catalog_search_with_empty_keyword` tests this
+  of an empty list.                          behaviour.
+
+  Cart total         Yes         Yes         `test_cart_total_sums_items` fails on shipped code (`10`
+  excludes the last                          instead of `30`) and passes on fixed code. The group's
+  item.                                      `test_cart_total_includes_last_item` records the same
+                                             defect.
+
+  Empty checkout     Yes         Yes         `test_checkout_empty_returns_none` fails on shipped code
+  returns `[]`                               and passes on fixed code. The group's
+  instead of `None`.                         `test_empty_checkout_returns_none_without_saving_order`
+                                             checks the same empty-cart behaviour.
+
+  Login fails after  Yes         No          None of the eight supplied tests checks registration and
+  registering 10,000                         login with 10,000 users. The group's
+  users.                                     `test_register_and_login_many_users` tests this scenario.
+
+  Bulk import of     Yes         Yes         `test_import_returns_count` fails on shipped code (`3`
+  20,000 products                            instead of `2`) and passes on fixed code. The group's
+  returns an                                 `test_bulk_import_many_products` checks the same
+  incorrect count.                           import-count behaviour at 20,000 products.
+
+  Search returns 20  No --- not  No --- not  `test_search_is_limited_to_ten_results` fails on both
+  results when the   listed as a a genuine   shipped and fixed code. The pair does not establish a
+  supplied test      group       detection   fixed defect. Verify the application specification before
+  expects no more    finding                 deciding whether a ten-result cap is required; the test's
+  than 10.                                   failure alone is not proof of a bug.
+  ----------------------------------------------------------------------------------------------------
 
 **Part 3 finding:** The supplied set genuinely catches three bugs
 already found by the group: cart total, empty checkout, and bulk-import
@@ -622,3 +686,20 @@ PASS; four tests passed in both versions; and the ten-result search test
 failed in both. We will also compare generated tests with our own
 regression tests to ensure they check the same specific behaviour.
 
+------------------------------------------------------------------------
+
+## Final Submission Checklist
+
+-   [ ] All members have confirmed the Part 1 AI-tool declaration.
+-   [ ] All eight supplied tests are included in Part 2.
+-   [ ] Actual shipped-code and fixed-code evidence is included for all
+    eight tests.
+-   [ ] Each auditor has confirmed that they personally performed the
+    assigned audit.
+-   [ ] The ten-result search requirement has been checked against the
+    specification; our own fixed-code run still fails this test.
+-   [ ] Part 3 includes all seven group findings and the additional
+    supplied-test-only row.
+-   [ ] Part 4 is complete and under 400 words.
+-   [ ] Save and commit this file as `AI_USAGE.md` in the repository
+    root.
