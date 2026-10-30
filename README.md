@@ -34,16 +34,6 @@ If any AI tools were used but are not listed here, add them before submission.
 | 7 | `test_add_to_cart_returns_true_for_known_product` | Checks whether adding a known product returns a successful result. | PASS | PASS | Detects nothing | So Pyay Htoo |
 | 8 | `test_search_is_limited_to_ten_results` | Claims catalogue search should return no more than ten results. | FAIL | FAIL | Invented requirement (provisional; verify specification) | So Pyay Htoo |
 
-*The auditor names follow the earlier group audit assignment draft. Each named member must confirm that they personally performed the audit; authorship of related group tests does not independently establish who audited these AI-supplied tests.*
-
-### 2.3 Individual Test Analysis and Evidence
-
-The actual repository test file shown in the terminal output is
-`ai_review/test_ai_generated.py` (not the template's example path
-`ai_review/test_ai_suggested.py`). The evidence below uses the actual
-pytest output supplied by the group. Each test entry follows the five
-required detail points.
-
 #### Test: `test_cart_total_sums_items` (`ai_review/test_ai_generated.py`)
 
 **Audited by:** Zarr Ni Htut --- confirm that you personally performed
